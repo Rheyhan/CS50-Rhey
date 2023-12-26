@@ -6,3 +6,4 @@
 Allah will raise in rank those of you who have faith and those who have been given knowledge.
 (Sūrat al-Mujādilah, No 58, Āyat 11)
 ```
+Bismillah dapet sertif.
