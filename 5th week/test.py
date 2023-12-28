@@ -1,17 +1,19 @@
-namelist=[]
-string="Adieu, adieu, to "
-while(True):
-    try:
-        a=str(input("Name: "))
-        namelist.append(a)
-        
-    except EOFError:
-        if len(namelist)==1:
-            print(string+namelist[0])
-        elif len(namelist)==2:
-            print(f'{string}{namelist[0]} and {namelist[1]}')
-        elif len(namelist)>2:
-            string+=' '.join(i for i in [f'{j},' for j in namelist[:-1]])
-            print(f'{string} and {namelist[-1]}')
+import argparse
+import requests
+import sys
 
-        break
+try:
+    parser=argparse.ArgumentParser()
+    parser.add_argument("Value", help="Btc quantity")
+    args = vars(parser.parse_args())
+except:
+    sys.exit("Missing command-line argument")
+try:
+    value = float(args["Value"])
+except:
+    sys.exit("Command-line argument is not a number")
+
+r=requests.get("https://api.coindesk.com/v1/bpi/currentprice.json")
+curerentrate=r.json()["bpi"]["USD"]["rate"]
+temp=f'{float(curerentrate.replace(",", ""))*value:.4f}'
+print(f'${float(temp):,}')
