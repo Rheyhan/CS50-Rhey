@@ -1,7 +1,8 @@
 import os
 import sys
-import pandas as pd
-import numpy as np
+from PIL import Image, ImageOps
+
+allowedformat=["jpg", "jpeg", "png"]
 
 if (temp:= len(sys.argv)) <= 2:
     sys.exit("Too few command-line arguments")
@@ -10,16 +11,19 @@ elif temp >3:
 path=sys.argv[1]
 target=sys.argv[2]
 
-try:
-    df=pd.read_csv(path)
-except:
-    sys.exit(f'Could not read {path}')
+if not os.path.exists(path):
+    sys.exit("Input does not exist")
     
-first=[]
-last=[]
-for i in df["name"].to_numpy():
-    temp = i.split(", ")
-    first.append(temp[1])
-    last.append(temp[0])
-    
-pd.DataFrame(list(zip(first, last, df["house"].to_numpy())), columns=["first", "last", "house"]).to_csv(target, index=False)
+if (temp:=target.split(".")[-1].lower()) not in allowedformat or (temp1:=path.split(".")[-1].lower()) not in allowedformat:
+    sys.exit("Invalid output")
+
+if temp!=temp1:
+    sys.exit("Input and output have different extensions")
+
+im1=Image.open(path)
+im2=Image.open("shirt.png")
+size=im2.size
+im1=ImageOps.fit(im1, size)
+
+im1.paste(im2, (0, 0), im2)
+im1.save(target)
