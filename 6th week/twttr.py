@@ -1,4 +1,3 @@
-
 forbidden=[]
 for i in ["a", "i", "u", "e", "o"]: forbidden.append(i.upper()); forbidden.append(i.lower())
 
