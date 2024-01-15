@@ -9,6 +9,6 @@ Allah will raise in rank those of you who have faith and those who have been giv
 ```
 Bismillah dapet sertif.
 
-<video width="320" height="240" autoplay>
-  <source src=".img/maxwell.mp4" type="video/mp4">
-</video>
+
+https://github.com/Rheyhan/CS50-Rhey/assets/93977384/ae8f9a44-897c-46c8-9496-786fd23e6114
+
