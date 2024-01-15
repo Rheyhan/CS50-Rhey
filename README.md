@@ -10,3 +10,7 @@ Allah will raise in rank those of you who have faith and those who have been giv
 (Sūrat al-Mujādilah, No 58, Āyat 11)
 ```
 Bismillah dapet sertif.
+
+<video width="320" height="240" autoplay>
+  <source src=".img/maxwell.mp4" type="video/mp4">
+</video>
