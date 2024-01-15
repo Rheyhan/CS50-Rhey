@@ -9,7 +9,7 @@ Disclaimer: **I'm just using this repo as an archive.**
 Allah will raise in rank those of you who have faith and those who have been given knowledge.
 (Sūrat al-Mujādilah, No 58, Āyat 11)
 ```
-Bismillah dapet sertif.
+I like cats. <3
 
 https://github.com/Rheyhan/CS50-Rhey/assets/93977384/a291f4a1-374f-4a01-adaf-066b31e3f4a3
 
