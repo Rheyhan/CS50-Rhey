@@ -1,5 +1,7 @@
 # Rheyhan
 [![Python3](https://img.shields.io/badge/language-Python3-red)](https://img.shields.io/badge/language-Python3-red)
+Disclaimer: **I'm just using this repo as an archive.**
+
 بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيْم
 
 ```text
@@ -8,7 +10,3 @@ Allah will raise in rank those of you who have faith and those who have been giv
 (Sūrat al-Mujādilah, No 58, Āyat 11)
 ```
 Bismillah dapet sertif.
-
-<video width="320" height="240" autoplay>
-  <source src=".img/maxwell.mp4" type="video/mp4">
-</video>
