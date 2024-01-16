@@ -93,4 +93,4 @@ if __name__=="__main__":
     parser.add_argument("-p", "--path", default="", help="Folder Destination")
     args = vars(parser.parse_args())
     search=args["search"]
-    imagedownloader(args["search"]).start(int(args["quantity"]), args["path"])
+    imagedownloader(args["search"]).start(int(args["quantity"]), args["path"])  
