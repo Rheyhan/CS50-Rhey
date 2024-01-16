@@ -1,15 +1,16 @@
 from bs4 import BeautifulSoup
 import requests
-from PIL import Image
 import os
 import re
 from tqdm import tqdm
+import argparse
+
 
 class imagedownloader:
     def __init__(self, whatyouwannasearch: str=None):
         if whatyouwannasearch==None: raise ValueError("Input what you gonna search!")
-        
-        self.whatyouwannasearch=whatyouwannasearch
+        if a:=re.search(r'\S.+\S', whatyouwannasearch)[0]:
+            self.whatyouwannasearch=a
         self.getURL()
         self.r=self.getrequest()
     
@@ -30,11 +31,12 @@ class imagedownloader:
     
     def start(self, 
               n: int=1, 
-              savepath: str=""):
+              savepath= None):
         '''
         n: int on range of 1 to 75.\n
         savepath: location of where the images are gonna be downloaded. Default on current directory.
         '''
+        if not re.search(r'\w', savepath): savepath=None
         if n<1 or n>=75: raise ValueError("Womp womp!")
         self.n=n
         self.savepath=savepath
@@ -49,7 +51,9 @@ class imagedownloader:
     def saveimage(self):
         counter=0
         index=-1
-        idkbro=f'{self.savepath}/{self.whatyouwannasearch}'
+        if self.savepath:
+            idkbro=f'{self.savepath}/{self.whatyouwannasearch}'
+        else: idkbro=f'{self.whatyouwannasearch}'
         try:
             os.makedirs(idkbro)
         except:
@@ -61,8 +65,11 @@ class imagedownloader:
             index+=1
             extensiontype=None
             for extension in [".jpg", ".png", ".jpeg"]:
-                if re.search(extension, self.targeturl[index]):  
-                    extensiontype=extension; break
+                try:
+                    if re.search(extension, self.targeturl[index]):  
+                        extensiontype=extension; break
+                except IndexError:
+                    print("Can't find any image!")
                     
             if extensiontype==None: continue
             r_image=requests.get(self.targeturl[index], headers=self.header, timeout=10)
@@ -79,4 +86,11 @@ class imagedownloader:
         return f'You\'re looking for {self.whatyouwannasearch}.'
     
 if __name__=="__main__":
-    imagedownloader("T-72B3").start(12,"testing")
+    parser = argparse.ArgumentParser(description=f'Hi! :3',
+                                    formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    parser.add_argument("-s", "--search", help="what you gon search for")
+    parser.add_argument("-n", "--quantity", default=1, help="How many images are gonna be downloaded?")
+    parser.add_argument("-p", "--path", default="", help="Folder Destination")
+    args = vars(parser.parse_args())
+    search=args["search"]
+    imagedownloader(args["search"]).start(int(args["quantity"]), args["path"])

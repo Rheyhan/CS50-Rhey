@@ -79,4 +79,8 @@ class imagedownloader:
         return f'You\'re looking for {self.whatyouwannasearch}.'
     
 if __name__=="__main__":
-    imagedownloader("T-72B3").start(12,"testing")
+    #i can use argparse in here, but idc tbh.
+    whatyogonnasearch=str(input(f'Search for     : '))
+    quantity= int(input(f'How many images: '))
+    downloadpath= str(input(f'Download path  : '))
+    imagedownloader(whatyogonnasearch).start(quantity, downloadpath)
