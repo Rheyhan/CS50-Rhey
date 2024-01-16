@@ -5,7 +5,7 @@
 Disclaimer: **The contributors do not assume any responsibility for the use of this tool.****
 
 <p align="center">
-<img align="center" src=".img/help.png" width="900">
+<img align="center" src=".img/help.png" width="600">
 </p>
 
 #### Video Demo:  <URL HERE>
@@ -13,9 +13,10 @@ Disclaimer: **The contributors do not assume any responsibility for the use of t
 A somewhat shrimple google image downloader is an **utility** tool on google to scrape random images.
 
 <p align="center">
-<img align="center" src=".img/Shrimple.png" width="900">
+<img align="center" src=".img/Shrimple.png" width="400">
 </p>
 
+and Commands 🧰
 A somewhat shrimple google image downloader offers a command line interface to perform image scrapping. You can get:
 ```text
 - search            Search for images.
